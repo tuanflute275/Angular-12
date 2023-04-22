@@ -1,27 +1,22 @@
-# Angular12
+## cài đặt môi trường
+      bước 1: npm i angular -g
+      bước 2: npm i -g @angular/cli @angular/core
+      bước 3: tạo project angular bằng câu lệnh trong cmd của máy
+        -- ng new tên_dự_án
+        --ví dụ: ng new project_angular
+      bước 4: di chuyển vào file project_angular bằng câu lệnh cd project_angular
+      bước 5: mở file bằng câu lệnh : ng serve --open
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+## Component là gì ?
+    --> tạo component: ng generate component tên_component   ____ viết tắt : ng g c tên
+    -->ví dụ: ng g c Home
 
-## Development server
+    ---> component dc coi như một khối như div vậy nhưng nó dc viết riêng lẻ ra
+    để sử dựng ta chỉ cần đưa khối div này vào 
+     
+    ==>vào thư mục home vừa tạo tìm tới file ts chính k có spec
+    --->thấy phần selector có tên app-home -->vậy app-home ở đây sẽ dc coi như 1 div 
+    --->để sử dụng ta chèn như sau <app-home></app-home> -->như vậy là dùng dc r
+    -->ở đây ta chèn vào file app.component.html
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    
