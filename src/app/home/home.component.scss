@@ -5,3 +5,14 @@
   width: 600px;
   margin: auto;
 }
+.table, td, th{
+  border-collapse: collapse;
+  border: 1px solid #000;
+  text-transform: capitalize;
+  min-width: 100px;
+  text-align: right;
+  padding: 5px;
+}
+.red{
+  color: red;
+}

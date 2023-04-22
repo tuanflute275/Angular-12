@@ -1,3 +1,69 @@
+<!-- Cascading ComboBox. Viết danh sách chọn tỉnh/thành rồi quận/huyện -->
 <div class="border-custom">
-  <h3>day la component</h3>
+    Tỉnh/Thành Phố
+  <select id="city" style="margin-right: 20px;" (change)="changeCity($event)">
+    <option *ngFor="let data of vietnamData" value="{{data.city}}">{{data.city}}</option>
+  </select>
+    Quận/Huyện
+  <select name="" id="district" >
+    <option *ngFor="let ds of districts" value="{{ds}}">{{ds}}</option>
+  </select>
 </div>
+
+
+<!-- table -->
+<!-- <table class="table">
+  <thead>
+    <tr>
+      <th>stt</th>
+      <th>name</th>
+      <th>price</th>
+      <th>salePrice</th>
+      <th>status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of traicay2, let i = index">
+      <td>{{i+1}}</td>
+      <td>{{item.ten | uppercase}}</td>
+      <td>{{item.gia | currency:'USD':'symbol':'1.2'}}</td>
+      <td><span [ngClass]="{'red':item.hagia<=0}">{{item.hagia | currency:'USD'}}</span></td>
+      <td>
+        <span>{{item.dhg | onSale | uppercase}}</span>
+      </td>
+    </tr>
+  </tbody>
+</table> -->
+
+<!-- loop -->
+<!-- <div class="border-custom">
+  <h3>Trái cây</h3>
+  <div *ngFor="let item of traicay, let i = index">
+    <li>{{i+1}}.{{item}}</li>
+  </div>
+</div> -->
+
+
+<!--  -->
+<!-- <div class="border-custom">
+  <h3>Đây là component</h3>
+  <h2>chào bạn {{name}}</h2>
+    <input type="text" [(ngModel)]="age">
+    <h3>Tuổi của bạn là {{age}}</h3>
+  <div *ngIf='age <= 18; then tre; else gia'></div>
+  <ng-template #tre><h2>bạn rất trẻ</h2></ng-template>
+  <ng-template #gia><h2>bạn đã già</h2></ng-template>
+</div> -->
+<!-- <div class="border-custom">
+  <h3>Đây là component</h3>
+  <h2>chào bạn {{name}}</h2>
+  <h2 *ngIf="age <= 18">bạn rất trẻ</h2>
+    <h2 *ngIf="age > 18">bạn đã già</h2>
+</div> -->
+<!-- <div class="border-custom">
+  <h3>Đây là home component</h3>
+  <br>
+  <input type="text" [(ngModel)]="name" >
+  <h2>chào bạn {{name}}</h2>
+  <button (click)="resetName()">Reset Tên</button>
+</div> -->
