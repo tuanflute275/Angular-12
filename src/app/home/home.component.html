@@ -1,18 +1,6 @@
-<!-- Cascading ComboBox. Viết danh sách chọn tỉnh/thành rồi quận/huyện -->
-<div class="border-custom">
-    Tỉnh/Thành Phố
-  <select id="city" style="margin-right: 20px;" (change)="changeCity($event)">
-    <option *ngFor="let data of vietnamData" value="{{data.city}}">{{data.city}}</option>
-  </select>
-    Quận/Huyện
-  <select name="" id="district" >
-    <option *ngFor="let ds of districts" value="{{ds}}">{{ds}}</option>
-  </select>
-</div>
-
 
 <!-- table -->
-<!-- <table class="table">
+<table class="table">
   <thead>
     <tr>
       <th>stt</th>
@@ -33,7 +21,7 @@
       </td>
     </tr>
   </tbody>
-</table> -->
+</table>
 
 <!-- loop -->
 <!-- <div class="border-custom">
