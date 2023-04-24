@@ -220,6 +220,69 @@ ng g service services/common
     ngOnInit(): void {
       this.counter = this.common.counter
     }
-    
+
+
+## Reactive Form - Model-Driven Form.
+import { ReactiveFormsModule } from '@angular/forms';
+---> trong file app.model
+--định nghĩa router cho nó 
+
+**html**
+    <!-- <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+      name: <input type="text" formControlName="name">
+      <br>
+      age: <input type="text" formControlName="age">
+      <br>
+      <button type="submit">submit</button>
+    </form> -->
+
+**ts**
+      public formData: FormGroup = new FormGroup({
+        name: new FormControl(''),
+        age: new FormControl('')
+      })
+      constructor(private common:CommonService){}
+      public onSubmit():void{
+        console.log('submit from: name = ' + this.formData);
+        this.common.submitData(this.formData.value)
+      }
+
+***form builder***
+$$ html
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+      name: <input type="text" formControlName="name">
+      <div *ngIf="!formData.controls.name.valid" style="color: red;">Name is require!</div>
+      <br>
+      age: <input type="text" formControlName="age">
+      <div *ngIf="!formData.controls.age.valid" style="color: red;">Age is require!</div>
+
+      <br>
+      <button type="submit" [disabled]="!formData.valid">submit</button>
+    </form>
+
+$$ ts
+    import { Component } from '@angular/core';
+    import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+    import { CommonService } from '../services/common.service';
+
+    @Component({
+      selector: 'app-reactive-form',
+      templateUrl: './reactive-form.component.html',
+      styleUrls: ['./reactive-form.component.scss']
+    })
+    export class ReactiveFormComponent {
+      public formData = this.formBuilder.group({
+        name: ['', Validators.required],
+        age:['', Validators.required]
+      })
+      constructor(private common:CommonService, private formBuilder: FormBuilder){}
+      public onSubmit():void{
+        console.log('submit from: name = ' + this.formData);
+        this.common.submitData(this.formData.value)
+      }
+    }
+
+## Http GET method - Observable
+
 
 
