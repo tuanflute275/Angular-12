@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommonService } from '../services/common.service';
 
 @Component({
   selector: 'app-home',
@@ -6,19 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  public name = 'tuna';
-  public age = 18;
-  public traicay = ['táo', 'nho', 'xoai']
-  public traicay2 = [
-    { ten: 'táo', gia: 15, hagia: 6, dhg: true },
-    { ten: 'nho', gia: 10, hagia: 0, dhg: true },
-    { ten: 'xoài', gia: 8, hagia: -1, dhg: true },
-    { ten: 'mít', gia: 20, hagia: 10, dhg: false },
-    { ten: 'cam', gia: 18, hagia: 18, dhg: false },
-  ]
+  public qrInfo = 'https://www.facebook.com/profile.php?id=100047425502024'
+  public baseInfo = ''
+  public with = 200;
+  public color = 'white'
+  public name: any = ''
+  public age: any = 18
+  public counter = 0;
+  public counterBinhPhuong = 0;
 
-  constructor() { }
+  constructor(private common: CommonService) { }
 
   public ngOnInit(): void {
+    this.counter = this.common.counter;
+    this.counterBinhPhuong = this.common.binhPhuong(this.counter);
+    this.common.counter++;
+  }
+  public change(event: any): void {
+    console.log('event ', event.target.value);
+    this.qrInfo = event.target.value
   }
 }
