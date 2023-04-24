@@ -9,6 +9,7 @@ import { OnSalePipe } from './on-sale.pipe';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HighLightDirective } from './Directives/hight-light.directive';
 import { QRCodeModule } from 'angular2-qrcode';
+import { TemplatedrivenformComponent } from './templatedrivenform/templatedrivenform.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { QRCodeModule } from 'angular2-qrcode';
     OnSalePipe,
     PageNotFoundComponent,
     HighLightDirective,
+    TemplatedrivenformComponent,
   ],
   imports: [
     BrowserModule,
