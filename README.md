@@ -283,6 +283,67 @@ $$ ts
     }
 
 ## Http GET method - Observable
+====>b1: tạo ra component mới
+---ng g c getData
+**trong file ts**
+          import { Component, OnInit } from '@angular/core';
+          import { HttpServerService } from '../services/http-server.service';
 
+          @Component({
+            selector: 'app-get-data',
+            templateUrl: './get-data.component.html',
+            styleUrls: ['./get-data.component.scss'],
+          })
+          export class GetDataComponent implements OnInit {
+            constructor(private httpServerService: HttpServerService) {}
+
+            public ngOnInit(): any {
+              this.httpServerService.getComments().subscribe((data) => {
+                console.log('getComments', data);
+              });
+
+              this.httpServerService.getRandomUsers(5).subscribe((data) => {
+                console.log('getRandomUsers', data.results);
+              });
+            }
+          }
+
+b2:tạo router cho trang
+b3:tạo service
+--ng g s services/httpServer
+**trong file http.ts**
+        import { HttpClient, HttpHeaders } from '@angular/common/http';
+        import { Injectable } from '@angular/core';
+        import { Observable } from 'rxjs';
+
+        @Injectable({
+          providedIn: 'root'
+        })
+        export class HttpServerService {
+          private REST_API_SERVER = '// https://jsonplaceholder.typicode.com/posts';
+          private REST_API_SERVER_RANDOM_USERS = 'https://randomuser.me/api/?results=';
+          private httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              // Authorization: 'my-auth-token'
+            }),
+          };
+
+          constructor(private httpClient: HttpClient) {}
+
+          public getComments(): Observable<any> {
+            const url = `${this.REST_API_SERVER}/comments`;
+            return this.httpClient.get<any>(url, this.httpOptions);
+          }
+
+          public getRandomUsers(users: number = 1): Observable<any> {
+            const url = `${this.REST_API_SERVER_RANDOM_USERS}` + users;
+            console.log(url);
+            return this.httpClient.get<any>(url, this.httpOptions);
+          }
+        }
+
+b4: file app.module
+import { HttpClientModule } from '@angular/common/http';
 
 

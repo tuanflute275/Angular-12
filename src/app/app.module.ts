@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -12,6 +13,7 @@ import { HighLightDirective } from './Directives/hight-light.directive';
 import { QRCodeModule } from 'angular2-qrcode';
 import { TemplatedrivenformComponent } from './templatedrivenform/templatedrivenform.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { GetDataComponent } from './get-data/get-data.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,15 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
     HighLightDirective,
     TemplatedrivenformComponent,
     ReactiveFormComponent,
+    GetDataComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     QRCodeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [],
