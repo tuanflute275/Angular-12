@@ -14,6 +14,7 @@ import { QRCodeModule } from 'angular2-qrcode';
 import { TemplatedrivenformComponent } from './templatedrivenform/templatedrivenform.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { GetDataComponent } from './get-data/get-data.component';
+import { PostdataComponent } from './postdata/postdata.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GetDataComponent } from './get-data/get-data.component';
     TemplatedrivenformComponent,
     ReactiveFormComponent,
     GetDataComponent,
+    PostdataComponent,
   ],
   imports: [
     BrowserModule,
